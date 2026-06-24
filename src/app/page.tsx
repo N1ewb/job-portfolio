@@ -1,4 +1,5 @@
 import stgoncThumbnail from "./assets/stgonc.png";
+import databankThumbnail from "./assets/databank.png";
 
 export default function Home() {
   return (
@@ -45,7 +46,7 @@ export default function Home() {
       <section className="border-t border-zinc-200 px-6 py-20 dark:border-zinc-800">
         <div className="mx-auto max-w-2xl">
           <h2 className="mb-8 text-2xl font-semibold">Featured Projects</h2>
-          <div className="flex w-auto rounded-2xl border-2 border-zinc-200 p-10 dark:border-zinc-800">
+          <div className="mb-6 flex w-auto rounded-2xl border-2 border-zinc-200 p-10 dark:border-zinc-800">
             <img
               src={stgoncThumbnail.src}
               alt="stgonc_thumbnail"
@@ -57,12 +58,29 @@ export default function Home() {
                 A web-based online consultation system developed for St. Peter's
                 College.
               </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {[
+                  "ReactJS",
+                  "TailwindCSS",
+                  "JavaScript",
+                  "HTML/CSS",
+                  "WebRTC",
+                  "Firebase",
+                ].map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-zinc-300 px-3 py-0.5 text-xs text-zinc-600 dark:border-zinc-600 dark:text-zinc-400"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
           <div className="flex w-auto rounded-2xl border-2 border-zinc-200 p-10 dark:border-zinc-800">
             <img
-              src={stgoncThumbnail.src}
+              src={databankThumbnail.src}
               alt="stgonc_thumbnail"
               className="h-48 w-48 rounded-xl object-cover"
             />
@@ -71,6 +89,23 @@ export default function Home() {
               <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 A web-based bar exam reviewer developed for St. Peter's College.
               </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {[
+                  "NextJS",
+                  "TailwindCSS",
+                  "JavaScript",
+                  "TypeScript",
+                  "HTML/CSS",
+                  "Prisma",
+                ].map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-zinc-300 px-3 py-0.5 text-xs text-zinc-600 dark:border-zinc-600 dark:text-zinc-400"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
