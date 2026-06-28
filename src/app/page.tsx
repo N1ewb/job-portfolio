@@ -27,7 +27,7 @@ const skills = [
 export default function Home() {
   return (
     <div className="flex flex-col relative z-0">
-      <section className="flex min-h-[70vh] flex-col items-center justify-center px-6 text-center">
+      <section className="flex min-h-[70vh] flex-col items-center justify-center px-6 text-center py-10">
         <p className="mb-6 text-xl text-zinc-500 dark:text-zinc-400">
           Hi, I'm Nathaniel Lucero
         </p>
@@ -154,6 +154,7 @@ export default function Home() {
           <h2 className="mb-8 text-2xl font-semibold">Featured Projects</h2>
           <div className="space-y-6">
             <ProjectCard
+              link="https://stgonc.vercel.app"
               title="STGONC"
               description="A web-based online consultation system developed for St. Peter's College."
               image={stgoncThumbnail}
@@ -169,6 +170,7 @@ export default function Home() {
               ]}
             />
             <ProjectCard
+              link="#"
               title="SPC Data Bank"
               description="A web-based bar exam reviewer developed for St. Peter's College."
               image={databankThumbnail}
@@ -185,6 +187,7 @@ export default function Home() {
               ]}
             />
             <ProjectCard
+              link="https://ylq-gn6o.vercel.app"
               title="YLQ APP"
               description="A web-based quiz application that enables instructors to create, manage, and host live quizzes while allowing students to participate in interactive assessments and track their performance."
               image={Ylq}
