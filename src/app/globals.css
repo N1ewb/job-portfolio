@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a1a;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -12,15 +12,243 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ========== Star Field ========== */
+.star-field .stars,
+.star-field .stars2,
+.star-field .stars3 {
+  position: absolute;
+  inset: 0;
+}
+
+/* Layer 1 — small dim stars */
+.star-field .stars {
+  background: transparent;
+  animation: twinkle1 4s ease-in-out infinite alternate;
+}
+
+.star-field .stars::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  box-shadow:
+    120px 45px #fff,
+    340px 120px #fff,
+    510px 80px #fff,
+    700px 200px #fff,
+    900px 60px #fff,
+    150px 300px #fff,
+    400px 400px #fff,
+    650px 350px #fff,
+    850px 500px #fff,
+    200px 600px #fff,
+    500px 700px #fff,
+    750px 650px #fff,
+    950px 800px #fff,
+    100px 900px #fff,
+    300px 1000px #fff,
+    600px 950px #fff,
+    800px 1100px #fff,
+    1100px 1200px #fff,
+    1300px 1300px #fff,
+    200px 1400px #fff,
+    450px 1500px #fff,
+    700px 1450px #fff,
+    1000px 1600px #fff,
+    1200px 1700px #fff,
+    400px 1800px #fff,
+    900px 1900px #fff,
+    1400px 2000px #fff,
+    100px 2100px #fff,
+    600px 2200px #fff,
+    1100px 2300px #fff,
+    150px 2500px #fff,
+    550px 2600px #fff,
+    1050px 2700px #fff,
+    1250px 2800px #fff,
+    300px 2900px #fff,
+    800px 3000px #fff,
+    1300px 3100px #fff,
+    200px 3200px #fff,
+    700px 3300px #fff,
+    1150px 3400px #fff;
+  background: transparent;
+}
+
+/* Layer 2 — medium brighter stars */
+.star-field .stars2::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  box-shadow:
+    250px 90px #fff,
+    480px 260px #fff,
+    760px 140px #fff,
+    1020px 300px #fff,
+    300px 500px #fff,
+    580px 600px #fff,
+    820px 450px #fff,
+    1100px 700px #fff,
+    150px 800px #fff,
+    450px 900px #fff,
+    850px 1000px #fff,
+    1200px 1100px #fff,
+    500px 1300px #fff,
+    900px 1400px #fff,
+    1300px 1500px #fff,
+    300px 1700px #fff,
+    700px 1800px #fff,
+    1100px 1900px #fff,
+    1500px 2100px #fff,
+    600px 2300px #fff,
+    1000px 2400px #fff,
+    400px 2600px #fff,
+    800px 2700px #fff,
+    1200px 2900px #fff,
+    200px 3100px #fff,
+    750px 3200px #fff,
+    1250px 3400px #fff;
+  animation: twinkle2 6s ease-in-out infinite alternate;
+  background: transparent;
+}
+
+/* Layer 3 — big bright stars */
+.star-field .stars3::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  box-shadow:
+    540px 200px #fff,
+    900px 500px #fff,
+    200px 700px #fff,
+    700px 900px #fff,
+    1100px 1300px #fff,
+    400px 1600px #fff,
+    950px 1900px #fff,
+    1400px 2200px #fff,
+    650px 2500px #fff,
+    1150px 2800px #fff,
+    500px 3100px #fff,
+    1050px 3300px #fff;
+  animation: twinkle3 8s ease-in-out infinite alternate;
+  background: transparent;
+}
+
+@keyframes twinkle1 {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes twinkle2 {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes twinkle3 {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ========== Moon Sphere ========== */
+.moon-base {
+  background: radial-gradient(circle at 32% 30%, #d4d4da 0%, #b8b8c2 12%, #9a9aa8 28%, #7a7a88 48%, #5a5a68 68%, #3e3e4c 85%, #2a2a36 100%);
+}
+
+/* Dark maria basins — large smooth dark areas */
+.moon-maria {
+  background:
+    radial-gradient(ellipse 22% 16% at 30% 35%, rgba(40, 40, 50, 0.35) 0%, transparent 100%),
+    radial-gradient(ellipse 15% 10% at 55% 28%, rgba(35, 35, 45, 0.3) 0%, transparent 100%),
+    radial-gradient(ellipse 12% 8% at 20% 50%, rgba(45, 45, 55, 0.25) 0%, transparent 100%),
+    radial-gradient(ellipse 18% 12% at 42% 55%, rgba(38, 38, 48, 0.2) 0%, transparent 100%),
+    radial-gradient(ellipse 10% 7% at 68% 45%, rgba(42, 42, 52, 0.2) 0%, transparent 100%);
+}
+
+/* Surface texture blobs */
+.moon-texture {
+  background:
+    radial-gradient(ellipse 14% 9% at 28% 25%, rgba(160, 160, 172, 0.12) 0%, transparent 100%),
+    radial-gradient(ellipse 10% 6% at 58% 22%, rgba(145, 145, 158, 0.1) 0%, transparent 100%),
+    radial-gradient(ellipse 18% 11% at 38% 42%, rgba(155, 155, 168, 0.08) 0%, transparent 100%),
+    radial-gradient(ellipse 12% 8% at 72% 38%, rgba(135, 135, 148, 0.1) 0%, transparent 100%),
+    radial-gradient(ellipse 8% 5% at 22% 55%, rgba(165, 165, 175, 0.1) 0%, transparent 100%),
+    radial-gradient(ellipse 11% 7% at 52% 60%, rgba(125, 125, 138, 0.1) 0%, transparent 100%),
+    radial-gradient(ellipse 9% 6% at 78% 52%, rgba(115, 115, 128, 0.08) 0%, transparent 100%),
+    radial-gradient(ellipse 7% 4% at 42% 72%, rgba(150, 150, 162, 0.1) 0%, transparent 100%),
+    radial-gradient(ellipse 6% 4% at 62% 75%, rgba(130, 130, 142, 0.08) 0%, transparent 100%),
+    radial-gradient(ellipse 5% 3% at 48% 82%, rgba(140, 140, 152, 0.07) 0%, transparent 100%);
+}
+
+/* Fine grain noise overlay */
+.moon-grain {
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: soft-light;
+}
+
+/* Subtle mountain ridge highlights */
+.moon-ridges {
+  background:
+    linear-gradient(165deg, transparent 30%, rgba(255, 255, 255, 0.03) 32%, transparent 34%),
+    linear-gradient(120deg, transparent 45%, rgba(255, 255, 255, 0.02) 47%, transparent 49%),
+    linear-gradient(200deg, transparent 55%, rgba(255, 255, 255, 0.025) 57%, transparent 59%),
+    linear-gradient(80deg, transparent 65%, rgba(255, 255, 255, 0.02) 67%, transparent 69%);
+}
+
+.moon-lighting {
+  background:
+    radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 25%, transparent 55%),
+    radial-gradient(circle at 72% 72%, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.15) 30%, transparent 60%);
+  mix-blend-mode: overlay;
+}
+
+/* Large craters */
+.crater {
+  background: radial-gradient(circle at 38% 38%, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.15) 40%, rgba(0, 0, 0, 0.05) 70%, transparent 100%);
+  box-shadow:
+    inset 0 3px 6px rgba(0, 0, 0, 0.25),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.08),
+    0 1px 3px rgba(255, 255, 255, 0.05);
+}
+
+/* Dark maria basins */
+.maria {
+  background: radial-gradient(circle at 40% 40%, rgba(30, 30, 42, 0.3) 0%, rgba(35, 35, 48, 0.15) 50%, transparent 100%);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Small secondary craters */
+.crater-sm {
+  background: radial-gradient(circle at 40% 40%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.08) 50%, transparent 100%);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.2),
+    0 0.5px 1px rgba(255, 255, 255, 0.05);
 }

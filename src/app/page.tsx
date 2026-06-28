@@ -1,9 +1,32 @@
 import stgoncThumbnail from "./assets/stgonc.png";
 import databankThumbnail from "./assets/databank.png";
+import Ylq from "./assets/YLQ.png";
+import ProjectCard from "@/components/ProjectCard";
+import {
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiTailwindcss,
+  SiPython,
+  SiGit,
+} from "react-icons/si";
+
+const skills = [
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "React", icon: SiReact },
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "Node.js", icon: SiNodedotjs },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
+  { name: "Python", icon: SiPython },
+  { name: "Git", icon: SiGit },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative z-0">
       <section className="flex min-h-[70vh] flex-col items-center justify-center px-6 text-center">
         <p className="mb-6 text-xl text-zinc-500 dark:text-zinc-400">
           Hi, I'm Nathaniel Lucero
@@ -113,21 +136,13 @@ export default function Home() {
             Some of the languages, technology and tools I use
           </p>
           <div className="flex flex-wrap gap-3">
-            {[
-              "JavaScript",
-              "TypeScript",
-              "React",
-              "Next.js",
-              "Node.js",
-              "Tailwind CSS",
-              "Python",
-              "Git",
-            ].map((skill) => (
+            {skills.map(({ name, icon: Icon }) => (
               <span
-                key={skill}
-                className="rounded-full border border-zinc-300 px-4 py-1.5 text-sm text-zinc-700 dark:border-zinc-600 dark:text-zinc-300"
+                key={name}
+                className="flex items-center gap-2 rounded-full border border-zinc-300 px-4 py-1.5 text-sm text-zinc-700 dark:border-zinc-600 dark:text-zinc-300"
               >
-                {skill}
+                <Icon className="h-4 w-4 shrink-0" />
+                {name}
               </span>
             ))}
           </div>
@@ -137,70 +152,54 @@ export default function Home() {
       <section className="border-t border-zinc-200 px-6 py-20 dark:border-zinc-800">
         <div className="mx-auto max-w-2xl">
           <h2 className="mb-8 text-2xl font-semibold">Featured Projects</h2>
-          <div className="mb-6 flex w-auto rounded-2xl border-2 border-zinc-200 p-10 dark:border-zinc-800">
-            <img
-              src={stgoncThumbnail.src}
+          <div className="space-y-6">
+            <ProjectCard
+              title="STGONC"
+              description="A web-based online consultation system developed for St. Peter's College."
+              image={stgoncThumbnail}
               alt="stgonc_thumbnail"
-              className="h-48 w-48 rounded-xl object-cover"
+              technologies={[
+                "ReactJS",
+                "TailwindCSS",
+                "JavaScript",
+                "HTML/CSS",
+                "WebRTC",
+                "Firebase",
+                "NoSQL",
+              ]}
             />
-            <div className="ml-6 flex flex-col justify-center">
-              <h3 className="text-xl font-semibold">STGONC</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                A web-based online consultation system developed for St. Peter's
-                College.
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {[
-                  "ReactJS",
-                  "TailwindCSS",
-                  "JavaScript",
-                  "HTML/CSS",
-                  "WebRTC",
-                  "Firebase",
-                  "NoSQL",
-                ].map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-zinc-300 px-3 py-0.5 text-xs text-zinc-600 dark:border-zinc-600 dark:text-zinc-400"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="flex w-auto rounded-2xl border-2 border-zinc-200 p-10 dark:border-zinc-800">
-            <img
-              src={databankThumbnail.src}
-              alt="stgonc_thumbnail"
-              className="h-48 w-48 rounded-xl object-cover"
+            <ProjectCard
+              title="SPC Data Bank"
+              description="A web-based bar exam reviewer developed for St. Peter's College."
+              image={databankThumbnail}
+              alt="spc_databank_thumbnail"
+              technologies={[
+                "NextJS",
+                "TailwindCSS",
+                "JavaScript",
+                "TypeScript",
+                "HTML/CSS",
+                "Postgresql",
+                "Supabase",
+                "Prisma",
+              ]}
             />
-            <div className="ml-6 flex flex-col justify-center">
-              <h3 className="text-xl font-semibold">SPC Data Bank</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                A web-based bar exam reviewer developed for St. Peter's College.
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {[
-                  "NextJS",
-                  "TailwindCSS",
-                  "JavaScript",
-                  "TypeScript",
-                  "HTML/CSS",
-                  "Postgresql",
-                  "Supabase",
-                  "Prisma",
-                ].map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-zinc-300 px-3 py-0.5 text-xs text-zinc-600 dark:border-zinc-600 dark:text-zinc-400"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <ProjectCard
+              title="YLQ APP"
+              description="A web-based quiz application that enables instructors to create, manage, and host live quizzes while allowing students to participate in interactive assessments and track their performance."
+              image={Ylq}
+              alt="YLQ_thumbnail"
+              technologies={[
+                "NextJS",
+                "TailwindCSS",
+                "JavaScript",
+                "TypeScript",
+                "HTML/CSS",
+                "Postgresql",
+                "Supabase",
+                "Prisma",
+              ]}
+            />
           </div>
         </div>
       </section>
