@@ -11,6 +11,8 @@ import {
   SiTailwindcss,
   SiPython,
   SiGit,
+  SiFigma,
+  SiWordpress,
 } from "react-icons/si";
 
 const skills = [
@@ -22,6 +24,8 @@ const skills = [
   { name: "Tailwind CSS", icon: SiTailwindcss },
   { name: "Python", icon: SiPython },
   { name: "Git", icon: SiGit },
+  { name: "Figma", icon: SiFigma },
+  { name: "Wordpress", icon: SiWordpress },
 ];
 
 export default function Home() {
